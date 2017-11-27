@@ -6,6 +6,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -61,5 +62,19 @@ public class SelectExerciseListFragment extends ListFragment {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1,
                                     listOfExercises);
         listView.setAdapter(arrayAdapter);
+        initOnListItemSelected();
+    }
+
+    /**
+     * Set Listeners for items in listView (android.R.id.list)
+     */
+
+    public void initOnListItemSelected() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
     }
 }
