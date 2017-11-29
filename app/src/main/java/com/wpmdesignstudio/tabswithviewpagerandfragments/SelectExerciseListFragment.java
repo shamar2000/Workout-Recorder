@@ -1,5 +1,6 @@
 package com.wpmdesignstudio.tabswithviewpagerandfragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
@@ -73,7 +74,8 @@ public class SelectExerciseListFragment extends ListFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                //TODO: Launch WorkoutRecorder Activity
+                startActivity(new Intent(getContext(), WorkoutRecorderActivity.class));
             }
         });
     }

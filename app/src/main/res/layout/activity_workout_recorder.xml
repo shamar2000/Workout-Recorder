@@ -8,21 +8,17 @@
     tools:context="com.wpmdesignstudio.tabswithviewpagerandfragments.WorkoutRecorderActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/workout_recorder_appbar"
         android:layout_width="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay"
         android:layout_height="?attr/actionBarSize">
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
-
-            </android.support.design.widget.TabLayout>
-
-        </android.support.v7.widget.Toolbar>
+            android:layout_height="50dp"
+            app:title="Record Workout"
+            app:titleTextColor="#fff"
+            android:id="@+id/workout_recorder_activity_toolbar"/>
 
     </android.support.design.widget.AppBarLayout>
+
 </RelativeLayout>

@@ -24,6 +24,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.wpmdesignstudio.tabswithviewpagerandfragments.MainActivity" />
         </activity>
+        <activity android:name=".WorkoutRecorderActivity"></activity>
     </application>
 
 </manifest>
