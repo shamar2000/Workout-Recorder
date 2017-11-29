@@ -5,18 +5,13 @@ import android.os.Bundle;
 
 public class WorkoutRecorderActivity extends AppCompatActivity {
 
+    String title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityTitle("NEW TITLE");
         setContentView(R.layout.activity_workout_recorder);
-    }
-
-    public void setActivityTitle(String activityTitle) {
-        getActivity().setActivityTitle(activityTitle);
-    }
-
-    private WorkoutRecorderActivity getActivity() {
-        return this;
+        title = "Name";
+        ((WorkoutRecorderActivity)this).getSupportActionBar().setTitle(title);
     }
 }
