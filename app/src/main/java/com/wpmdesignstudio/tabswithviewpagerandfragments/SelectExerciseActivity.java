@@ -16,8 +16,6 @@ public class SelectExerciseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_exercise);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        int in = 5;
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
