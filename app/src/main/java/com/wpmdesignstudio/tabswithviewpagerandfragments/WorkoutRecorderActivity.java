@@ -28,15 +28,14 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
 
     private void setupTabs() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        tabLayout.setupWithViewPager(viewPager);
         viewPager.setAdapter(viewPagerAdapter);
-
     }
 
     private void initXML() {
         tabLayout = (TabLayout) findViewById(R.id.workout_recorder_activity_tabLayout);
         viewPager = (ViewPager) findViewById(R.id.workout_recorder_activity_viewpager);
         toolbar = (Toolbar) findViewById(R.id.workout_recorder_activity_toolbar);
+        tabLayout.setupWithViewPager(viewPager);
         setSupportActionBar(toolbar);
     }
 
@@ -72,28 +71,5 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
             }
             return super.getPageTitle(position);
         }
-    }
-
-    /**
-     * test fragment
-     */
-    public static class TestFragment extends Fragment {
-
-        public TestFragment() {
-
-        }
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.test_fragment, container, false);
-        }
-
     }
 }
