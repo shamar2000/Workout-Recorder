@@ -17,6 +17,11 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_recorder);
         initXML();
+        setupTabs();
+    }
+
+    private void setupTabs() {
+
     }
 
     private void initXML() {
