@@ -35,8 +35,8 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.workout_recorder_activity_tabLayout);
         viewPager = (ViewPager) findViewById(R.id.workout_recorder_activity_viewpager);
         toolbar = (Toolbar) findViewById(R.id.workout_recorder_activity_toolbar);
-        tabLayout.setupWithViewPager(viewPager);
         setSupportActionBar(toolbar);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     /**
