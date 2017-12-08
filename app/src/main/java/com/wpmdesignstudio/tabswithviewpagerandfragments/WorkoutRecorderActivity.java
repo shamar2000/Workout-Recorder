@@ -38,6 +38,8 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
+        TrackFragment trackFragment = new TrackFragment();
+
         private ViewPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -46,7 +48,7 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch(position) {
                 case 0:
-                    return new TrackFragment();
+                    return trackFragment;
                 case 1:
                     return new HistoryFragment();
                 case 2:
