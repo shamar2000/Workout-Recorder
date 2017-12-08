@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /**
@@ -22,7 +23,9 @@ public class TrackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_track_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_track_layout, container, false);
+        ListView listView = (ListView) view.findViewById(R.id.list);
+        return view;
     }
 
 }
