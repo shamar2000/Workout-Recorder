@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:layout_height="match_parent"
-    tools:context="com.wpmdesignstudio.tabswithviewpagerandfragments.WorkoutRecorderActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/workout_recorder_activity_appbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/workout_recorder_activity_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:background="@color/colorPrimary"
-            app:title="Record Workout" />
+            app:title="Workout Recorder"
+            app:titleTextColor="#fff"/>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/workout_recorder_activity_tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:tabGravity="fill"
-            app:tabMode="fixed" />
+            <android.support.design.widget.TabLayout
+                android:id="@+id/workout_recorder_activity_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
+
 
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/workout_recorder_activity_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="43dp" />
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
 
 </RelativeLayout>

@@ -8,9 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class WorkoutRecorderActivity extends AppCompatActivity {
 
@@ -25,7 +22,7 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        tabLayout = (TabLayout) findViewById(R.id.workout_recorder_activity_tabLayout);
+        tabLayout = (TabLayout) findViewById(R.id.workout_recorder_activity_tablayout);
         viewPager = (ViewPager) findViewById(R.id.workout_recorder_activity_viewpager);
         toolbar = (Toolbar) findViewById(R.id.workout_recorder_activity_toolbar);
 
@@ -47,7 +44,15 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new TestFragment();
+            switch(position) {
+                case 0:
+                    return new TrackFragment();
+                case 1:
+                    return new HistoryFragment();
+                case 2:
+                    return new GraphFragment();
+            }
+            return null;
         }
 
         @Override
@@ -59,11 +64,11 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Title 1";
+                    return "track";
                 case 1:
-                    return "Title 2";
+                    return "history";
                 case 2:
-                    return "Title 3";
+                    return "graph";
             }
             return super.getPageTitle(position);
         }
