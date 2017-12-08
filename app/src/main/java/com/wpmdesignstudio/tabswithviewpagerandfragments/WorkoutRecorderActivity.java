@@ -22,22 +22,18 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_recorder);
-        initXML();
-        setupTabs();
-    }
 
-    private void setupTabs() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(viewPagerAdapter);
-    }
 
-    private void initXML() {
         tabLayout = (TabLayout) findViewById(R.id.workout_recorder_activity_tabLayout);
         viewPager = (ViewPager) findViewById(R.id.workout_recorder_activity_viewpager);
         toolbar = (Toolbar) findViewById(R.id.workout_recorder_activity_toolbar);
+
         setSupportActionBar(toolbar);
+        viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
 
     /**
      * ViewPager Adapter (FragmentStatePagerAdapter) for the ViewPager
