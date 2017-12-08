@@ -19,7 +19,9 @@
             <android.support.design.widget.TabLayout
                 android:id="@+id/workout_recorder_activity_tablayout"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"/>
+                android:layout_height="?attr/actionBarSize"
+                app:tabTextColor="#90caf9"
+                app:tabSelectedTextColor="#fff"/>
 
 
     </android.support.design.widget.AppBarLayout>
