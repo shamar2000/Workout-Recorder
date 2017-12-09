@@ -14,6 +14,7 @@
 
     <EditText
         android:id="@+id/weight_editText"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -26,8 +27,31 @@
 
     <EditText
         android:id="@+id/reps_editTEXT"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:weightSum="100"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_weight="50"
+            android:id="@+id/save_workout_button"
+            android:layout_width="0dp"
+            android:text="save"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="50"
+            android:id="@+id/delete_workout_button"
+            android:text="delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <ListView
         android:layout_marginTop="10dp"
