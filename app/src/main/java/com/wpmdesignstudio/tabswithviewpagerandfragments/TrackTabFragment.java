@@ -13,13 +13,13 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TrackFragment extends Fragment {
+public class TrackTabFragment extends Fragment {
 
-    private EditText weightEditText;
-    private EditText repsEditText;
+     EditText weightEditText;
+     EditText repsEditText;
 
 
-    public TrackFragment() {
+    public TrackTabFragment() {
         // Required empty public constructor
     }
 
@@ -27,11 +27,11 @@ public class TrackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_track_layout, container, false);
         weightEditText = (EditText) view.findViewById(R.id.weight_editText);
         repsEditText = (EditText) view.findViewById(R.id.reps_editTEXT);
-        ListView listView = (ListView) view.findViewById(android.R.id.list);
+        ListView listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
         return view;
     }
-
 }

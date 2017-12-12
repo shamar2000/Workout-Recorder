@@ -20,6 +20,9 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_recorder);
 
+        Bundle bundle = getIntent().getExtras();
+        String exerciseName = bundle.getString("EXERCISE_NAME");
+
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         tabLayout = (TabLayout) findViewById(R.id.workout_recorder_activity_tablayout);
@@ -27,6 +30,7 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.workout_recorder_activity_toolbar);
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(exerciseName);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -38,7 +42,7 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
-        TrackFragment trackFragment = new TrackFragment();
+        TrackTabFragment trackTabFragment = new TrackTabFragment();
 
         private ViewPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -48,7 +52,7 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch(position) {
                 case 0:
-                    return trackFragment;
+                    return trackTabFragment;
                 case 1:
                     return new HistoryFragment();
                 case 2:

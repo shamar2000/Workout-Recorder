@@ -74,8 +74,12 @@ public class SelectExerciseListFragment extends ListFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Launch WorkoutRecorder Activity
-                startActivity(new Intent(getContext(), WorkoutRecorderActivity.class));
+                Bundle bundle = new Bundle();
+                String exerciseName = (String) adapterView.getItemAtPosition(i);
+                bundle.putString("EXERCISE_NAME", exerciseName);
+                Intent startWorkoutRecorderActivity = new Intent(getContext(), WorkoutRecorderActivity.class);
+                startWorkoutRecorderActivity.putExtras(bundle);
+                startActivity(startWorkoutRecorderActivity);
             }
         });
     }

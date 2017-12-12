@@ -55,7 +55,7 @@
 
     <ListView
         android:layout_marginTop="10dp"
-        android:id="@android:id/list"
+        android:id="@+id/list_of_workouts_listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
