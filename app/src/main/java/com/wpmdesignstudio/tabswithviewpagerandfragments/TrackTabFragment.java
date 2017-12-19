@@ -20,7 +20,7 @@ public class TrackTabFragment extends Fragment {
 
      EditText weightEditText;
      EditText repsEditText;
-     private int setNumber = 0;
+     private int setNumber = 1;
 
      Button saveBtn;
      Button deleteBtn;
