@@ -39,9 +39,9 @@ public class TrackTabFragmentListAdapter extends ArrayAdapter<WorkoutInformation
         TextView weight = (TextView) convertView.findViewById(R.id.weight_number_textView);
         TextView reps = (TextView) convertView.findViewById(R.id.rep_number_textView);
 
-        sets.setText(setNumber);
-        weight.setText(weightNumber);
-        reps.setText(repNumber);
+        sets.setText(String.valueOf(setNumber));
+        weight.setText(String.valueOf(weightNumber));
+        reps.setText(String.valueOf(repNumber));
 
         return convertView;
 

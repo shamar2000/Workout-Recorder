@@ -39,7 +39,7 @@ public class TrackTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_track_layout, container, false);
         weightEditText = (EditText) view.findViewById(R.id.weight_editText);
         repsEditText = (EditText) view.findViewById(R.id.reps_editTEXT);
-        ListView listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
+        final ListView listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
         saveBtn = (Button) view.findViewById(R.id.save_workout_button);
         deleteBtn = (Button) view.findViewById(R.id.delete_workout_button);
         workoutInformationArrayList = new ArrayList<>();
@@ -48,12 +48,11 @@ public class TrackTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 saveWorkout();
+                TrackTabFragmentListAdapter trackTabFragmentListAdapter = new TrackTabFragmentListAdapter
+                        (getActivity(), R.layout.track_tab_fragment_list_view, workoutInformationArrayList);
+                listView.setAdapter(trackTabFragmentListAdapter);
             }
         });
-
-        TrackTabFragmentListAdapter trackTabFragmentListAdapter = new TrackTabFragmentListAdapter
-                (getActivity(), R.layout.track_tab_fragment_list_view, workoutInformationArrayList);
-        listView.setAdapter(trackTabFragmentListAdapter);
 
         return view;
     }
