@@ -10,6 +10,7 @@ import android.widget.ListAdapter;
 
 public class SelectExerciseActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

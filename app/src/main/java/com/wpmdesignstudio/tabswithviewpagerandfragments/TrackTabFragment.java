@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,11 @@ public class TrackTabFragment extends Fragment {
     public void saveWorkout() {
         String weightNumber = weightEditText.getText().toString();
         String repsNumber = repsEditText.getText().toString();
+
+        if(weightNumber.isEmpty() || repsNumber.isEmpty()) {
+            Toast.makeText(getContext(), "Weight or Reps cannot be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
         int weight = Integer.parseInt(weightNumber);
         int reps = Integer.parseInt(repsNumber);
 

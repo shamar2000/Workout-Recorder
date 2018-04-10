@@ -2,55 +2,55 @@
 <LinearLayout
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp">
 
-    <TextView
-        android:id="@+id/weight_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WEIGHT (in lbs)" />
+        <TextView
+            android:id="@+id/weight_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WEIGHT (in lbs)" />
 
-    <EditText
-        android:id="@+id/weight_editText"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/weight_editText"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_marginTop="15dp"
-        android:id="@+id/reps_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REPS" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/reps_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REPS" />
 
-    <EditText
-        android:id="@+id/reps_editTEXT"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/reps_editTEXT"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:weightSum="100"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:weightSum="100">
 
         <Button
-            android:layout_weight="50"
             android:id="@+id/save_workout_button"
             android:layout_width="0dp"
-            android:text="save"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="save" />
 
         <Button
-            android:layout_weight="50"
             android:id="@+id/delete_workout_button"
-            android:text="delete"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="delete" />
     </LinearLayout>
 
     <ListView
@@ -58,6 +58,5 @@
         android:id="@+id/list_of_workouts_listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 
 </LinearLayout>
