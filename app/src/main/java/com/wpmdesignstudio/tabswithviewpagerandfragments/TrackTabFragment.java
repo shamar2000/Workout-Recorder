@@ -3,6 +3,7 @@ package com.wpmdesignstudio.tabswithviewpagerandfragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class TrackTabFragment extends Fragment {
      EditText weightEditText;
      EditText repsEditText;
      private int setNumber = 1;
+     private int counter = 0;
 
      Button saveBtn;
      Button deleteBtn;
@@ -71,5 +73,9 @@ public class TrackTabFragment extends Fragment {
 
         WorkoutInformation workoutInformation = new WorkoutInformation(setNumber++, weight, reps);
         workoutInformationArrayList.add(workoutInformation);
+
+        WorkoutInformation workoutInfo1 = workoutInformationArrayList.get(counter++);
+        String weightNum = Integer.toString(workoutInfo1.getWeightNumber());
+        Toast.makeText(getContext(), "Weight: " + weightNum, Toast.LENGTH_SHORT).show();
     }
 }
