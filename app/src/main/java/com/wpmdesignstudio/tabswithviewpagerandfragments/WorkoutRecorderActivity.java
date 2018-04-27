@@ -37,6 +37,10 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     /**
      * ViewPager Adapter (FragmentStatePagerAdapter) for the ViewPager
@@ -80,23 +84,5 @@ public class WorkoutRecorderActivity extends AppCompatActivity {
             }
             return super.getPageTitle(position);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_done, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case R.menu.menu_done:
-                // Get reps and weight from TrackTabFragment and pass it to
-                // WorkoutInformation and record the info.
-        }
-
-        return true;
     }
 }

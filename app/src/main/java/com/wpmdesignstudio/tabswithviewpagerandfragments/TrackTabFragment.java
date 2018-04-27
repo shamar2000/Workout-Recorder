@@ -2,6 +2,7 @@ package com.wpmdesignstudio.tabswithviewpagerandfragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,13 +14,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class TrackTabFragment extends Fragment {
+public class TrackTabFragment extends Fragment implements Serializable {
 
+     FloatingActionButton fab;
      EditText weightEditText;
      EditText repsEditText;
      private int setNumber = 1;
@@ -45,6 +45,7 @@ public class TrackTabFragment extends Fragment {
         final ListView listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
         saveBtn = (Button) view.findViewById(R.id.save_workout_button);
         deleteBtn = (Button) view.findViewById(R.id.delete_workout_button);
+        fab = (FloatingActionButton) view.findViewById(R.id.fab_TrackTabFragment);
         workoutInformationArrayList = new ArrayList<>();
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +58,24 @@ public class TrackTabFragment extends Fragment {
             }
         });
 
+        /**
+         * Let this method call the method that gets the workout information from the ArrayList and
+         * passes it to the workoutRecorderActivity
+         */
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     public void saveWorkout() {
@@ -73,7 +91,9 @@ public class TrackTabFragment extends Fragment {
 
         WorkoutInformation workoutInformation = new WorkoutInformation(setNumber++, weight, reps);
         workoutInformationArrayList.add(workoutInformation);
+    }
 
+    public void PassWorkoutInformation() {
         WorkoutInformation workoutInfo1 = workoutInformationArrayList.get(counter++);
         String weightNum = Integer.toString(workoutInfo1.getWeightNumber());
         Toast.makeText(getContext(), "Weight: " + weightNum, Toast.LENGTH_SHORT).show();

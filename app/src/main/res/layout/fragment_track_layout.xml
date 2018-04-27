@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20dp">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/weight_textView"
@@ -32,31 +34,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:weightSum="100">
-
-        <Button
-            android:id="@+id/save_workout_button"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="save" />
+            android:layout_marginTop="10dp"
+            android:weightSum="100">
 
-        <Button
-            android:id="@+id/delete_workout_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="delete" />
+            <Button
+                android:id="@+id/save_workout_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="save" />
+
+            <Button
+                android:id="@+id/delete_workout_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="delete" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:id="@+id/list_of_workouts_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
-    <ListView
-        android:layout_marginTop="10dp"
-        android:id="@+id/list_of_workouts_listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_TrackTabFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        app:elevation="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_action_done"
+        />
 
-</LinearLayout>
+</RelativeLayout>
