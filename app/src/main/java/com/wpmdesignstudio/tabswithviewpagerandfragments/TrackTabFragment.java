@@ -111,6 +111,12 @@ public class TrackTabFragment extends Fragment implements Serializable {
             PassWorkoutInformation();
         }
 
+        /**
+         * UNFINISHED METHOD
+         *
+         * This method needs to pass the workout recorded in workout array for display in the
+         * workout recorder activity
+         */
         public void PassWorkoutInformation() {
             WorkoutInformation workoutInfo1 = workoutInformationArrayList.get(counter++);
             String weightNum = Integer.toString(workoutInfo1.getWeightNumber());
