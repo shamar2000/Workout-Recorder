@@ -40,6 +40,10 @@ public class TrackTabFragment extends Fragment implements Serializable {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_track_layout, container, false);
+
+        /*
+         * Initialise XML attributes
+         */
         weightEditText = (EditText) view.findViewById(R.id.weight_editText);
         repsEditText = (EditText) view.findViewById(R.id.reps_editTEXT);
         final ListView listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
@@ -73,7 +77,7 @@ public class TrackTabFragment extends Fragment implements Serializable {
             }
         });
 
-        /**
+        /*
          * Let this method call the method that gets the workout information from the ArrayList and
          * passes it to the workoutRecorderActivity
          */
