@@ -1,7 +1,9 @@
 package com.wpmdesignstudio.tabswithviewpagerandfragments;
 
 
-public class WorkoutInformation {
+import java.io.Serializable;
+
+public class WorkoutInformation implements Serializable {
 
     private int setNumber;
     private int repNumber;

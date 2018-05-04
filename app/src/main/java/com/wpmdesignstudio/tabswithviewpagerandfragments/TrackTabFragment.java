@@ -1,6 +1,7 @@
 package com.wpmdesignstudio.tabswithviewpagerandfragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -17,8 +18,9 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TrackTabFragment extends Fragment implements Serializable {
+public class TrackTabFragment extends Fragment {
 
+     ListView listView;
      FloatingActionButton fab;
      EditText weightEditText;
      EditText repsEditText;
@@ -46,11 +48,20 @@ public class TrackTabFragment extends Fragment implements Serializable {
          */
         weightEditText = (EditText) view.findViewById(R.id.weight_editText);
         repsEditText = (EditText) view.findViewById(R.id.reps_editTEXT);
-        final ListView listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
+        listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
         saveBtn = (Button) view.findViewById(R.id.save_workout_button);
         deleteBtn = (Button) view.findViewById(R.id.delete_workout_button);
         fab = (FloatingActionButton) view.findViewById(R.id.fab_TrackTabFragment);
         workoutInformationArrayList = new ArrayList<>();
+
+
+        listView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                // Display checkboxes for user to select workout(s) to delete
+                return false;
+            }
+        });
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +88,16 @@ public class TrackTabFragment extends Fragment implements Serializable {
             }
         });
 
-        /*
-         * Let this method call the method that gets the workout information from the ArrayList and
-         * passes it to the workoutRecorderActivity
-         */
 
         fab.setOnClickListener(new onClickListener());
+
+        listView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Toast.makeText(getActivity(), "It works", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
         return view;
     }
@@ -114,17 +129,11 @@ public class TrackTabFragment extends Fragment implements Serializable {
         public void onClick(View view) {
             PassWorkoutInformation();
         }
+    }
 
-        /**
-         * UNFINISHED METHOD
-         *
-         * This method needs to pass the workout recorded in workout array for display in the
-         * workout recorder activity
-         */
-        public void PassWorkoutInformation() {
-            WorkoutInformation workoutInfo1 = workoutInformationArrayList.get(counter++);
-            String weightNum = Integer.toString(workoutInfo1.getWeightNumber());
-            Toast.makeText(getContext(), "Weight: " + weightNum, Toast.LENGTH_SHORT).show();
-        }
+    public void PassWorkoutInformation() {
+        Intent workoutInformation = new Intent(getContext(), MainActivity.class);
+        workoutInformation.putExtra("WorkoutArrayList", workoutInformationArrayList);
+        startActivity(workoutInformation);
     }
 }
