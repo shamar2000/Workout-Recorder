@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -54,15 +55,6 @@ public class TrackTabFragment extends Fragment {
         fab = (FloatingActionButton) view.findViewById(R.id.fab_TrackTabFragment);
         workoutInformationArrayList = new ArrayList<>();
 
-
-        listView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                // Display checkboxes for user to select workout(s) to delete
-                return false;
-            }
-        });
-
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,11 +83,11 @@ public class TrackTabFragment extends Fragment {
 
         fab.setOnClickListener(new onClickListener());
 
-        listView.setOnLongClickListener(new View.OnLongClickListener() {
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                Toast.makeText(getActivity(), "It works", Toast.LENGTH_SHORT).show();
-                return false;
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "it works", Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
 
