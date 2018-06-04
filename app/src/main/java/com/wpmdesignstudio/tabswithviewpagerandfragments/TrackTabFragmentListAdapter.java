@@ -44,6 +44,5 @@ public class TrackTabFragmentListAdapter extends ArrayAdapter<WorkoutInformation
         reps.setText(String.valueOf(repNumber));
 
         return convertView;
-
     }
 }

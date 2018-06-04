@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class TrackTabFragment extends Fragment {
      Button saveBtn;
      Button deleteBtn;
      ArrayList<WorkoutInformation> workoutInformationArrayList;
+     TrackTabFragmentListAdapter trackTabFragmentListAdapter;
 
 
     public TrackTabFragment() {
@@ -50,6 +52,7 @@ public class TrackTabFragment extends Fragment {
         weightEditText = (EditText) view.findViewById(R.id.weight_editText);
         repsEditText = (EditText) view.findViewById(R.id.reps_editTEXT);
         listView = (ListView) view.findViewById(R.id.list_of_workouts_listView);
+        listView.setChoiceMode(2);
         saveBtn = (Button) view.findViewById(R.id.save_workout_button);
         deleteBtn = (Button) view.findViewById(R.id.delete_workout_button);
         fab = (FloatingActionButton) view.findViewById(R.id.fab_TrackTabFragment);
@@ -59,24 +62,30 @@ public class TrackTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 saveWorkout();
-                TrackTabFragmentListAdapter trackTabFragmentListAdapter = new TrackTabFragmentListAdapter
+                trackTabFragmentListAdapter = new TrackTabFragmentListAdapter
                         (getActivity(), R.layout.track_tab_fragment_list_view, workoutInformationArrayList);
                 listView.setAdapter(trackTabFragmentListAdapter);
             }
         });
 
-        deleteBtn.setOnClickListener(new View.OnClickListener() {
+        deleteBtn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if (workoutInformationArrayList.isEmpty()) {
-                    Toast.makeText(getContext(), "List is empty", Toast.LENGTH_SHORT).show();
-                } else {
-                    workoutInformationArrayList.remove(0);
-                    TrackTabFragmentListAdapter trackTabFragmentListAdapter = new TrackTabFragmentListAdapter
-                            (getActivity(), R.layout.track_tab_fragment_list_view, workoutInformationArrayList);
-                    listView.setAdapter(trackTabFragmentListAdapter);
-                }
+            public void onClick(View v)
+            {
 
+                SparseBooleanArray checked = listView.getCheckedItemPositions();
+                for (int i = 0; i < listView.getCount(); i++){
+
+                    if (checked.get(i))
+                    {
+                        workoutInformationArrayList.remove(i);
+
+                    }
+                    trackTabFragmentListAdapter.notifyDataSetChanged();
+
+                }
+                listView.clearChoices();
             }
         });
 

@@ -49,7 +49,6 @@
 
             <Button
                 android:id="@+id/delete_workout_button"
-                android:enabled="false"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
