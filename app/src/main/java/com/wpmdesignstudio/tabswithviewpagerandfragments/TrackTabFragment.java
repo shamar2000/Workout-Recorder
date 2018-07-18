@@ -5,19 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class TrackTabFragment extends Fragment {
@@ -26,6 +24,7 @@ public class TrackTabFragment extends Fragment {
      FloatingActionButton fab;
      EditText weightEditText;
      EditText repsEditText;
+     CheckBox checkBoxes;
      private int setNumber = 1;
      private int counter = 0;
 
@@ -75,15 +74,14 @@ public class TrackTabFragment extends Fragment {
             {
 
                 SparseBooleanArray checked = listView.getCheckedItemPositions();
-                for (int i = 0; i < listView.getCount(); i++){
+                int itemCount = listView.getCount();
+                for (int i = itemCount-1; i >= 0; i--){
 
-                    if (checked.get(i))
-                    {
+                    if (checked.get(i)) {
                         workoutInformationArrayList.remove(i);
-
                     }
-                    trackTabFragmentListAdapter.notifyDataSetChanged();
 
+                    trackTabFragmentListAdapter.notifyDataSetChanged();
                 }
                 listView.clearChoices();
             }

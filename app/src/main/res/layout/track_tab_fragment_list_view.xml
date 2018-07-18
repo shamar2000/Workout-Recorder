@@ -32,8 +32,9 @@
         android:text="Weight Number"
         />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--<CheckBox-->
+        <!--android:id="@+id/checkboxes"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
 </LinearLayout>
